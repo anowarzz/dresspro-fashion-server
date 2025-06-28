@@ -6,7 +6,7 @@ export interface IProductType {
   imageUrl: string;
   category: string;
   inStock: boolean;
-  featured: boolean;
+  featured?: boolean;
 }
 
 export interface IProductTypeCollection {

@@ -5,6 +5,6 @@ import { ProductTypeRoutes } from '../modules/productTypes/productTypes.routes';
 const router = Router();
 
 router.use('/api/v1/categories', CategoryRoutes);
-router.use('/api/v1/productTypes', ProductTypeRoutes);
+router.use('/api/v1/product-types', ProductTypeRoutes);
 
 export default router;

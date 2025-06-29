@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { ProductTypeController } from './productTypes.controller';
 
-
 const router = Router();
 
 // GET /api/v1/productTypes - Get all product types

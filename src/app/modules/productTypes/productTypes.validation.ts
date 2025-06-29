@@ -128,7 +128,9 @@ const updateProductTypeValidationSchema = z.object({
         invalid_type_error: 'Product type category must be a string',
       })
       .min(1, { message: 'Product type category cannot be empty' })
-      .max(250, { message: 'Product type category cannot exceed 250 characters' })
+      .max(250, {
+        message: 'Product type category cannot exceed 250 characters',
+      })
       .trim()
       .toLowerCase()
       .optional(),

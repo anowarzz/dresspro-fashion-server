@@ -7,6 +7,4 @@ const router = Router();
 router.use('/api/v1/categories', CategoryRoutes);
 router.use('/api/v1/productTypes', ProductTypeRoutes);
 
-
-
 export default router;

@@ -1,18 +1,18 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from 'express';
 
 const globalErrorHandler = (
   error: any,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): any => {
   // Global error handler
 
   if (error) {
-    if (error.name === "ValidationError") {
+    if (error.name === 'ValidationError') {
       return res.status(400).json({
         success: false,
-        message: "Validation failed",
+        message: 'Validation failed',
         error: {
           name: error.name,
           errors: error.errors,
@@ -27,7 +27,7 @@ const globalErrorHandler = (
 
       return {
         success: false,
-        message: "Duplicate Value Error",
+        message: 'Duplicate Value Error',
         error: errorMessage,
       };
     };
@@ -40,9 +40,9 @@ const globalErrorHandler = (
 
     res.status(400).json({
       success: false,
-      message: error.customMessage || error.message || "something went wrong",
+      message: error.customMessage || error.message || 'something went wrong',
       error: {
-        message: error.message || "An error occurred",
+        message: error.message || 'An error occurred',
       },
     });
     return;

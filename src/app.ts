@@ -1,6 +1,7 @@
-import cors from "cors";
-import express, { Application, NextFunction, Request, Response } from "express";
-import globalErrorHandler from "./app/middleware/globalErrorHandler";
+import cors from 'cors';
+import express, { Application, NextFunction, Request, Response } from 'express';
+import globalErrorHandler from './app/middleware/globalErrorHandler';
+import router from './app/routes';
 
 const app: Application = express();
 
@@ -8,23 +9,26 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
+// using routes
+app.use(router);
+
 // Testing API HomeRoute
 const test = async (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
-    message: "Welcome To Dresspro Fashion Server",
-    note: "Winter is coming",
+    message: 'Welcome To Dresspro Fashion Server',
+    note: 'Winter is coming',
   });
 };
 
-app.get("/", test);
+app.get('/', test);
 export default app;
 
 // route error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({
     success: false,
-    message: "Route not found",
+    message: 'Route not found',
   });
 });
 
